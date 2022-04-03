@@ -31,7 +31,9 @@ vid_writer = cv2.VideoWriter('output.avi',
                              (frame.shape[1], frame.shape[0]))
 # 用于读取已经训练好的caffe模型
 # prototxt表示caffe网络的结构文本，model表示已经训练好的参数结果
-net = cv2.dnn.readNetFromCaffe(prototxt=protoFile, model=weightsFile)
+net = cv2.dnn.readNetFromCaffe(protoFile, weightsFile)
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
 k = 0
 while True:
