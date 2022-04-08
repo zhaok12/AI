@@ -119,6 +119,6 @@ while True:
 
     print("total = {}".format(time.time() - t))
 
-    vid_writer.write(frame)
+    # vid_writer.write(frame)
 
 vid_writer.release()
